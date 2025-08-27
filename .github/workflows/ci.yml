@@ -15,13 +15,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Create LocalDevelopment.xcconfig for CI
-      run: |
-        echo "// CI Configuration - temporary file for automated builds" > LocalDevelopment.xcconfig
-        echo "DEVELOPMENT_TEAM = " >> LocalDevelopment.xcconfig
-        echo "CODE_SIGNING_ALLOWED = NO" >> LocalDevelopment.xcconfig
-        echo "CODE_SIGN_IDENTITY = \"\"" >> LocalDevelopment.xcconfig
-        echo "CODE_SIGNING_REQUIRED = NO" >> LocalDevelopment.xcconfig
+    - name: Setup CI configuration
+      run: cp CI.xcconfig LocalDevelopment.xcconfig
       
     - name: Select Xcode version
       run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
@@ -70,13 +65,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Create LocalDevelopment.xcconfig for CI
-      run: |
-        echo "// CI Configuration - temporary file for automated builds" > LocalDevelopment.xcconfig
-        echo "DEVELOPMENT_TEAM = " >> LocalDevelopment.xcconfig
-        echo "CODE_SIGNING_ALLOWED = NO" >> LocalDevelopment.xcconfig
-        echo "CODE_SIGN_IDENTITY = \"\"" >> LocalDevelopment.xcconfig
-        echo "CODE_SIGNING_REQUIRED = NO" >> LocalDevelopment.xcconfig
+    - name: Setup CI configuration
+      run: cp CI.xcconfig LocalDevelopment.xcconfig
       
     - name: Select Xcode version
       run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
